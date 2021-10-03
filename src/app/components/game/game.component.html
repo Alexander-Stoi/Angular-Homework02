@@ -1,0 +1,27 @@
+<div [ngClass]="gameFromApp.genre">
+    <div class="container__content">
+        <div class="game">
+            <div class="game__header">
+                <div class="game__id">{{gameFromApp.id}}</div>
+                <span class="game__title">
+                    <h3>{{gameFromApp.title | uppercase | abbreviation}}</h3>
+                </span>
+            </div>
+            <div class="game__content">
+                <p>Release Date: {{gameFromApp.releaseDate | date: "fullDate"}}</p>
+                <p>Rating: {{gameFromApp.rating | percent:"2.2"}}</p>
+                <p>Price: {{gameFromApp.price | currency:"EUR"}}</p>
+                <p>Short Description: <button type="button" (click)="showDescription()">{{shortDesc ?
+                        "Hide" : "Show"}}</button></p>
+                <p *ngIf="shortDesc">{{gameFromApp.shortDescription}}</p>
+                <p>Genre: {{gameFromApp.genre | uppercase}}</p>
+            </div>
+            <div class=" game__footer">
+                <p [ngStyle]="{color:'red'}">Publisher: {{gameFromApp.publisher}}</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+    </div>
+
+</div>
